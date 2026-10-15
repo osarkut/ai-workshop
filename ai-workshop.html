@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="AI for Business: a seven-workshop certificate program by Oguz Sarkut. Build your AI team, one coworker at a time.">
+<title>AI for Business Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: same sheet as Workshop 01; a dark masthead, then the seven workshops as a numbered sequence (the order is real: 01 introduces, 07 joins them up), then program details with placeholders still to confirm. */
+:root{
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#ebe7df;
+  --sheet:#fbfaf7;
+  --ink:#15181a;
+  --ink-2:#45494a;
+  --ink-3:#6c7070;
+  --line:#dcd6ca;
+  --amber:#a86b00;
+  --amber-soft:rgba(168,107,0,.09);
+  --amber-line:rgba(168,107,0,.45);
+  --band:#111416;
+  --band-ink:#f2efe9;
+  --band-ink-2:#b6b8b3;
+  --glow:#f4b63f;
+  --card:#ffffff;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI Variable Display","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Instrument Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08090a; --sheet:#111416; --ink:#f2efe9; --ink-2:#b6b8b3; --ink-3:#8a8f89; --line:#2a3034;
+    --amber:#f4b63f; --amber-soft:rgba(244,182,63,.10); --amber-line:rgba(244,182,63,.42);
+    --band:#1b2023; --band-ink:#f2efe9; --band-ink-2:#b6b8b3; --glow:#f4b63f; --card:#171b1e;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08090a; --sheet:#111416; --ink:#f2efe9; --ink-2:#b6b8b3; --ink-3:#8a8f89; --line:#2a3034;
+  --amber:#f4b63f; --amber-soft:rgba(244,182,63,.10); --amber-line:rgba(244,182,63,.42);
+  --band:#1b2023; --band-ink:#f2efe9; --band-ink-2:#b6b8b3; --glow:#f4b63f; --card:#171b1e;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:32px 48px}
+a{color:var(--amber);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+.sheet{max-width:960px;margin:0 auto;background:var(--sheet);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.topbar{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font:500 12px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.topbar a{text-decoration:none;border-bottom:1px solid var(--amber-line);padding-bottom:1px}
+.mast{background:var(--band);color:var(--band-ink);padding:44px 32px 40px;display:grid;gap:16px}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glow)}
+h1{font:800 clamp(40px,7vw,72px)/.95 var(--f-display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sub{font:500 clamp(18px,2.4vw,22px)/1.35 var(--f-display);color:var(--band-ink-2);margin:0;max-width:44ch}
+.core{margin:8px 0 0;padding-top:18px;border-top:1px solid rgba(242,239,233,.16);font:700 clamp(22px,3.4vw,30px)/1.15 var(--f-display)}
+.core em{font-style:normal;color:var(--glow);text-shadow:0 0 22px rgba(244,182,63,.35)}
+
+.content{padding:32px;display:grid;gap:34px}
+h2{font:700 13px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin:0 0 12px}
+p{margin:0;max-width:64ch}
+.lead{font-size:18px;line-height:1.5}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:64px 48px minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+.step .n{font:800 34px/1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--ink-3)}
+.step .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--amber-line);color:var(--amber);background:var(--amber-soft);box-shadow:0 0 0 4px var(--sheet),0 0 18px -4px var(--amber-line)}
+.step .ic svg{width:22px;height:22px}
+.step .title{display:grid;gap:3px}
+.step .title b{font:700 19px/1.2 var(--f-display)}
+.step .title span{font-size:14px;color:var(--ink-3)}
+.step .build{display:grid;gap:3px;font-size:15px;color:var(--ink-2)}
+.step .build .k{font:500 11px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.step.now{background:linear-gradient(90deg,var(--amber-soft),transparent 70%)}
+.step.now .n{color:var(--amber)}
+.tag{display:inline-block;margin-left:8px;font:500 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:999px;border:1px solid var(--amber-line);color:var(--amber);vertical-align:3px}
+.step.now .title a{color:inherit;text-decoration:none;border-bottom:1px solid var(--amber-line)}
+
+.details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.d{border:1px solid var(--line);border-radius:4px;padding:14px;background:var(--card);display:grid;gap:6px;align-content:start}
+.d .k{font:500 11px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.d .v{font:600 16px/1.3 var(--f-body)}
+.ph{font:500 13px/1.4 var(--f-mono);padding:3px 6px;border:1px dashed var(--amber-line);border-radius:3px;color:var(--amber)}
+.note{font-size:13px;color:var(--ink-3)}
+.tbd{font:500 15px/1.3 var(--f-mono);letter-spacing:.06em;color:var(--ink-3)}
+
+.cta{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center;padding:20px;border:1px solid var(--ink);border-radius:4px}
+.cta .big{font:700 22px/1.2 var(--f-display)}
+.cta .who{font:500 13px/1.3 var(--f-mono);color:var(--ink-3)}
+.btn{display:inline-block;font:600 15px/1 var(--f-body);text-decoration:none;color:var(--sheet);background:var(--ink);padding:12px 16px;border-radius:3px}
+.btn:hover{background:var(--amber);color:#fff}
+.foot{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;padding:20px 32px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-3)}
+.foot a{font-weight:600}
+
+@media (max-width:760px){
+  .mast,.content,.topbar,.foot{padding-left:20px;padding-right:20px}
+  .step{grid-template-columns:44px minmax(0,1fr);gap:10px 14px}
+  .step .n{font-size:26px}
+  .step .ic{grid-column:1;grid-row:2;width:36px;height:36px}
+  .step .ic svg{width:18px;height:18px}
+  .step .title{grid-column:2;grid-row:1}
+  .step .build{grid-column:2;grid-row:2}
+  .details{grid-template-columns:minmax(0,1fr)}
+  body{padding-block:16px 32px}
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <div class="topbar">
+    <span>AI for Business · Certificate program · 7 workshops</span>
+    <a href="01-meet-your-ai-coworker.html">Start with Workshop 01 →</a>
+  </div>
+
+  <header class="mast">
+    <div class="eyebrow">AI for Business</div>
+    <h1>Build your AI team, one coworker at a time</h1>
+    <p class="sub">A seven-workshop certificate program. Workshop 01 introduces the idea. Each workshop after it builds one AI coworker for your business, and in 07 they work together.</p>
+    <p class="core">Don’t just ask AI questions. <em>Give AI work.</em></p>
+  </header>
+
+  <div class="content">
+    <section>
+      <h2>The seven workshops</h2>
+      <ol class="steps">
+        <li class="step now">
+          <span class="n">01</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4"/></svg></span>
+          <span class="title"><b><a href="01-meet-your-ai-coworker.html">Meet Your AI Coworker</a><span class="tag">Start here</span></b><span>What AI can already do</span></span>
+          <span class="build"><span class="k">You leave with</span>How to give AI real work, and your first job for AI on a work order</span>
+        </li>
+        <li class="step">
+          <span class="n">02</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M14.5 14.5 20 20"/></svg></span>
+          <span class="title"><b>Your AI Market Analyst</b><span>Market research and competitive intelligence</span></span>
+          <span class="build"><span class="k">You build</span>The Monday brief: competitors, prices and local news, with a source behind each claim</span>
+        </li>
+        <li class="step">
+          <span class="n">03</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l8 4V6L7 10H4z"/><path d="M18 9.5a3.5 3.5 0 0 1 0 5"/></svg></span>
+          <span class="title"><b>Your AI Marketer</b><span>Marketing and content</span></span>
+          <span class="build"><span class="k">You build</span>The weekly content plan, built from what customers said last week</span>
+        </li>
+        <li class="step">
+          <span class="n">04</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l4-4 3 2 3-2 4 3"/><path d="M21 12l-4-4"/><path d="M7 8 3 12l5 5 2-1 3 2 4-4"/><path d="M10 14l2 2M12 12.5l2.5 2.5"/></svg></span>
+          <span class="title"><b>Your AI Sales Assistant</b><span>Sales and customer growth</span></span>
+          <span class="build"><span class="k">You build</span>The prospect funnel: who may need you now, why, and a draft for each. Nothing goes out without your OK</span>
+        </li>
+        <li class="step">
+          <span class="n">05</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 20v-5M12 20V9M17 20V5"/></svg></span>
+          <span class="title"><b>Your AI Data Analyst</b><span>Data analysis and decision making</span></span>
+          <span class="build"><span class="k">You build</span>Counted, not guessed: answers from your own numbers, with the count behind each one</span>
+        </li>
+        <li class="step">
+          <span class="n">06</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></span>
+          <span class="title"><b>Your AI Operations Assistant</b><span>Automation and business workflows</span></span>
+          <span class="build"><span class="k">You build</span>Every Monday at 6 AM: your recurring jobs running on a schedule</span>
+        </li>
+        <li class="step">
+          <span class="n">07</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><circle cx="12" cy="13" r="1.6"/><path d="M12 7v4.4M6.6 15.9l4-2M17.4 15.9l-4-2M7 17h10"/></svg></span>
+          <span class="title"><b>Your AI Agent Team</b><span>AI agents working together</span></span>
+          <span class="build"><span class="k">You build</span>Coworkers that work together: one watches the market, one plans content, one follows up. You manage the team</span>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>How every workshop works</h2>
+      <p class="lead">Each session is built around one real job. You see it run on real business data, learn how to brief it, check it and approve it, and leave with that coworker set up for your own business.</p>
+    </section>
+
+    <section>
+      <h2>Program details</h2>
+      <div class="details">
+        <div class="d"><span class="k">Session length</span><span class="v">40 minutes or 2 hours</span><span class="note">Every workshop comes in both formats</span></div>
+        <div class="d"><span class="k">Format</span><span class="v tbd">TBD</span></div>
+        <div class="d"><span class="k">Schedule</span><span class="v tbd">TBD</span></div>
+        <div class="d"><span class="k">Total program time</span><span class="v tbd">TBD</span></div>
+        <div class="d"><span class="k">Certificate issued by</span><span class="v tbd">TBD</span></div>
+        <div class="d"><span class="k">Cost</span><span class="v tbd">TBD</span></div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <div>
+        <div class="big">Bring the program to your organization</div>
+        <div class="who">Oguz Sarkut · AI Product Leader · Fortune 100 company</div>
+        <p style="margin-top:8px">Contact: <a href="mailto:ea@oatmarketing.com">ea@oatmarketing.com</a></p>
+      </div>
+      <a class="btn" href="https://ozsarkut.com" target="_blank" rel="noopener">ozsarkut.com</a>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>AI for Business · 7-workshop certificate program</span>
+    <a href="01-meet-your-ai-coworker.html">Start with Workshop 01 →</a>
+  </footer>
+</main>
+</body>
+</html>

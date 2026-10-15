@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Meet Your AI Coworker: Workshop 01 of the AI for Business program by Oguz Sarkut. Don't just ask AI questions. Give AI work.">
+<title>Meet Your AI Coworker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one printable sheet; a dark masthead band carries the core line, then a two-column body (story left, logistics right) that stacks on phones. Tokens follow the Workshop 01 deck. */
+:root{
+  --bg:#ebe7df;
+  --sheet:#fbfaf7;
+  --ink:#15181a;
+  --ink-2:#45494a;
+  --ink-3:#6c7070;
+  --line:#dcd6ca;
+  --amber:#a86b00;
+  --amber-soft:rgba(168,107,0,.09);
+  --amber-line:rgba(168,107,0,.45);
+  --band:#111416;
+  --band-ink:#f2efe9;
+  --band-ink-2:#b6b8b3;
+  --glow:#f4b63f;
+  --ticket:#ffffff;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI Variable Display","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Instrument Sans","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08090a; --sheet:#111416; --ink:#f2efe9; --ink-2:#b6b8b3; --ink-3:#8a8f89; --line:#2a3034;
+    --amber:#f4b63f; --amber-soft:rgba(244,182,63,.10); --amber-line:rgba(244,182,63,.42);
+    --band:#1b2023; --band-ink:#f2efe9; --band-ink-2:#b6b8b3; --glow:#f4b63f; --ticket:#171b1e;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08090a; --sheet:#111416; --ink:#f2efe9; --ink-2:#b6b8b3; --ink-3:#8a8f89; --line:#2a3034;
+  --amber:#f4b63f; --amber-soft:rgba(244,182,63,.10); --amber-line:rgba(244,182,63,.42);
+  --band:#1b2023; --band-ink:#f2efe9; --band-ink-2:#b6b8b3; --glow:#f4b63f; --ticket:#171b1e;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:32px 48px}
+a{color:var(--amber);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+.sheet{max-width:960px;margin:0 auto;background:var(--sheet);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.topbar{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font:500 12px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.topbar a{font-weight:500;text-decoration:none;border-bottom:1px solid var(--amber-line);padding-bottom:1px}
+.topbar a:hover{border-bottom-color:var(--amber)}
+
+.mast{background:var(--band);color:var(--band-ink);padding:44px 32px 40px;display:grid;gap:18px}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glow)}
+h1{font:800 clamp(40px,7vw,72px)/.95 var(--f-display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sub{font:500 clamp(18px,2.4vw,22px)/1.3 var(--f-display);color:var(--band-ink-2);margin:0}
+.core{margin:10px 0 0;padding:18px 0 0;border-top:1px solid rgba(242,239,233,.16);font:700 clamp(22px,3.4vw,32px)/1.15 var(--f-display);letter-spacing:-.01em;text-wrap:balance}
+.core em{font-style:normal;color:var(--glow);text-shadow:0 0 22px rgba(244,182,63,.35)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;margin:6px 0 0;padding:0;list-style:none;font:400 13px/1.4 var(--f-mono);color:var(--band-ink-2)}
+.facts b{color:var(--band-ink);font-weight:500}
+
+.body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:0}
+.main{padding:32px;display:grid;gap:30px;align-content:start}
+.side{padding:32px;border-left:1px solid var(--line);display:grid;gap:26px;align-content:start;background:linear-gradient(var(--amber-soft),transparent 240px)}
+h2{font:700 13px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin:0 0 10px}
+p{margin:0;max-width:62ch}
+.lead{font-size:18px;line-height:1.5;color:var(--ink)}
+.lead s{text-decoration-color:var(--ink-3)}
+
+.ticket{background:var(--ticket);border:1px solid var(--line);border-radius:4px;box-shadow:0 18px 40px -26px rgba(40,30,10,.35);overflow:hidden}
+.ticket-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;padding:12px 18px;border-bottom:1px dashed var(--line);font:500 11px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.ticket-head .real{color:var(--amber)}
+.ticket-body{padding:18px;display:grid;gap:12px}
+.ticket-body h3{font:700 22px/1.15 var(--f-display);margin:0}
+.ticket-body h3 span{color:var(--ink-3);font-weight:500}
+.brief{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.brief li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;align-items:baseline}
+.brief li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber);transform:translateY(-1px)}
+.num{font-variant-numeric:tabular-nums;font-weight:600}
+.drafts{display:flex;flex-wrap:wrap;gap:8px;padding-top:4px}
+.chip{font:500 12px/1 var(--f-mono);padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);background:var(--sheet)}
+.chip.zero{border-color:var(--amber-line);color:var(--amber)}
+
+.jobs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.jobs li{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:4px;align-content:start}
+.jobs .k{font:500 11px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.jobs .t{font:700 17px/1.2 var(--f-display)}
+.jobs p{font-size:14px;color:var(--ink-2)}
+
+.learn{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.learn li{display:grid;gap:3px}
+.learn b{font:700 16px/1.3 var(--f-display)}
+.learn span{color:var(--ink-2);font-size:15px}
+
+.order{border:1px solid var(--amber-line);border-radius:4px;background:var(--ticket);overflow:hidden}
+.order .row{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--line);font-size:14px}
+.order .row:first-of-type{border-top:0}
+.order .row dt{padding:9px 12px;font:500 11px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border-right:1px solid var(--line)}
+.order .row dd{margin:0;padding:9px 12px;color:var(--ink-3)}
+.order .cap{padding:10px 12px;font:500 11px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:var(--amber-soft);border-bottom:1px solid var(--amber-line)}
+.prompt{margin:12px 0 0;padding:12px 14px;border-left:3px solid var(--amber);background:var(--amber-soft);font-size:14px;line-height:1.5;color:var(--ink)}
+
+.side .block{display:grid;gap:8px}
+.side p,.side li{font-size:15px;color:var(--ink-2)}
+.side ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.speaker{display:grid;gap:4px}
+.speaker .name{font:700 22px/1.1 var(--f-display);color:var(--ink)}
+.speaker .role{font:500 13px/1.3 var(--f-mono);color:var(--ink-3)}
+.speaker q{display:block;margin-top:8px;font-style:italic;color:var(--ink-2);quotes:"\201C" "\201D"}
+.ph{font:500 13px/1 var(--f-mono);padding:3px 6px;border:1px dashed var(--amber-line);border-radius:3px;color:var(--amber);white-space:nowrap}
+.cta{display:grid;gap:10px;padding:18px;border:1px solid var(--ink);border-radius:4px;background:var(--sheet)}
+.cta .big{font:700 20px/1.2 var(--f-display);color:var(--ink)}
+.cta a.btn{display:inline-block;justify-self:start;font:600 15px/1 var(--f-body);text-decoration:none;color:var(--sheet);background:var(--ink);padding:12px 16px;border-radius:3px}
+.cta a.btn:hover{background:var(--amber);color:#fff}
+
+.foot{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;padding:20px 32px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-3)}
+.foot a{font-weight:600}
+
+@media (max-width:760px){
+  .body{grid-template-columns:minmax(0,1fr)}
+  .side{border-left:0;border-top:1px solid var(--line)}
+  .jobs{grid-template-columns:minmax(0,1fr)}
+  .mast,.main,.side{padding-left:20px;padding-right:20px}
+  .topbar,.foot{padding-left:20px;padding-right:20px}
+  body{padding-block:16px 32px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .core em{transition:text-shadow .4s}
+}
+</style>
+</head>
+<body>
+
+<main class="sheet">
+  <div class="topbar">
+    <span>AI for Business · Workshop 01 of 7</span>
+    <a href="ai-workshop.html">← All 7 workshops</a>
+  </div>
+
+  <header class="mast">
+    <div class="eyebrow">Workshop 01 · Introduction</div>
+    <h1>Meet Your AI Coworker</h1>
+    <p class="sub">What AI can already do for your business</p>
+    <p class="core">Don’t just ask AI questions. <em>Give AI work.</em></p>
+    <ul class="facts">
+      <li><b>40 min or 2 hours</b> two session formats</li>
+      <li><b>Live demos</b> on real business data</li>
+      <li><b>Plain language</b> no coding</li>
+    </ul>
+  </header>
+
+  <div class="body">
+    <section class="main">
+      <div>
+        <h2>The shift</h2>
+        <p class="lead">Most of us use AI like a search box. A question goes in, an answer comes out, and then we do the work ourselves. This session shows the other way: hand AI a job, your information and what done looks like, and get back finished work.</p>
+      </div>
+
+      <article class="ticket" aria-label="Real example: a Monday brief">
+        <div class="ticket-head">
+          <span>Monday brief · Sep 28 – Oct 5</span>
+          <span class="real">Real run · Oct 5, 2026</span>
+        </div>
+        <div class="ticket-body">
+          <h3>This arrived Monday at 6 AM. <span>Nobody asked.</span></h3>
+          <p>An AI job set up once for a café-bakery watched the local market, wrote a one-page brief and left drafts for the owner to approve.</p>
+          <ul class="brief">
+            <li><span>A new bakery opened in Plano.</span></li>
+            <li><span>A new matcha café opened in Frisco.</span></li>
+            <li><span>Matcha lattes nearby run <span class="num">$6.27</span> to <span class="num">$8.78</span>. Where it couldn’t find a price, it wrote “not listed” instead of guessing.</span></li>
+          </ul>
+          <div class="drafts" aria-label="Drafts waiting in Gmail">
+            <span class="chip">4 drafts in Gmail</span>
+            <span class="chip zero">0 sent</span>
+          </div>
+        </div>
+      </article>
+
+      <div>
+        <h2>Three jobs you’ll see run live</h2>
+        <ul class="jobs">
+          <li><span class="k">Market</span><span class="t">A weekly brief</span><p>Competitors, prices and local news, with a source behind each claim.</p></li>
+          <li><span class="k">Customers</span><span class="t">A week of reviews</span><p>What customers love, what frustrates them and what they ask, counted, not guessed.</p></li>
+          <li><span class="k">Sales</span><span class="t">A job in the background</span><p>Finds businesses that may need you and drafts the outreach. It contacts no one.</p></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>What you’ll learn</h2>
+        <ul class="learn">
+          <li><b>Six kinds of work AI can do today</b><span>Answer and write, research and cite, work with your files, connect to your apps, take steps for you, run on a schedule.</span></li>
+          <li><b>Brief it like a new hire</b><span>Give it the goal, your real information and what done looks like. Then give notes on the draft and ask it what’s weakest.</span></li>
+          <li><b>When AI makes things up</b><span>Why it sounds sure when it has nothing to go on, and the habits that catch it.</span></li>
+          <li><b>When to trust it</b><span>Ask how sure it is, let the stakes decide, and approve before it acts.</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Everyone leaves with their first job for AI</h2>
+        <div class="order" role="group" aria-label="Work order card">
+          <div class="cap">Work order · yours this week</div>
+          <dl style="margin:0">
+            <div class="row"><dt>The job</dt><dd>Something you repeat every week</dd></div>
+            <div class="row"><dt>The goal</dt><dd>What you want done, and why</dd></div>
+            <div class="row"><dt>The context</dt><dd>Connect it or attach it</dd></div>
+            <div class="row"><dt>Done looks like</dt><dd>Format, length, “say not sure”</dd></div>
+          </dl>
+        </div>
+        <p class="prompt">Stuck? Start with: “I need help with [the task]. Before you start, ask me up to five questions about the goal, what you need to know and what done looks like. Then wait for my OK.”</p>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="speaker">
+        <h2>Speaker</h2>
+        <span class="name">Oguz Sarkut</span>
+        <span class="role">AI Product Leader · Fortune 100 company</span>
+        <q>Everything you’ll see is how I actually work.</q>
+      </div>
+
+      <div class="block">
+        <h2>Who it’s for</h2>
+        <ul>
+          <li>Business owners and their teams</li>
+          <li>Chamber and association members</li>
+          <li>Students and career changers</li>
+          <li>Professional groups and employee networks</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <span class="big">Bring Workshop 01 to your group</span>
+        <p>Book a session: <a href="mailto:ea@oatmarketing.com">ea@oatmarketing.com</a></p>
+        <a class="btn" href="https://ozsarkut.com" target="_blank" rel="noopener">ozsarkut.com</a>
+      </div>
+
+      <div class="block">
+        <h2>Then build the team</h2>
+        <p>Workshop 01 is the first of seven in the AI for Business certificate program. Each one after it builds one AI coworker for your business.</p>
+        <p><a href="ai-workshop.html">See the full program →</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <span>Meet Your AI Coworker · AI for Business · Workshop 01 of 7</span>
+    <a href="ai-workshop.html">← All 7 workshops</a>
+  </footer>
+</main>
+</body>
+</html>
