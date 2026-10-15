@@ -391,7 +391,7 @@ p{margin:0;max-width:62ch}
       lang = b.getAttribute('data-lang');
       apply(lang);
       try { localStorage.setItem('aiw-lang', lang); } catch(e){}
-      try { history.replaceState(null, '', location.pathname + '#' + lang); } catch(e){}
+      try { history.replaceState(null, '', location.pathname + '?lang=' + lang); } catch(e){}
     });
   });
   window.addEventListener('hashchange', function(){ var l = fromUrl(); if (l && l !== lang){ lang = l; apply(lang); } });
