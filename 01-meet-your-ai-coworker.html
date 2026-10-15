@@ -107,7 +107,8 @@ p{margin:0;max-width:62ch}
 .side p,.side li{font-size:15px;color:var(--ink-2)}
 .side ul{margin:0;padding-left:18px;display:grid;gap:4px}
 .speaker{display:grid;gap:4px}
-.speaker .name{font:700 22px/1.1 var(--f-display);color:var(--ink)}
+.speaker .name{font:700 22px/1.1 var(--f-display);color:var(--ink);text-decoration:none;justify-self:start;border-bottom:2px solid var(--amber-line)}
+.speaker .name:hover{color:var(--amber);border-bottom-color:var(--amber)}
 .speaker .role{font:500 13px/1.3 var(--f-mono);color:var(--ink-3)}
 .speaker q{display:block;margin-top:8px;font-style:italic;color:var(--ink-2);quotes:"\201C" "\201D"}
 .ph{font:500 13px/1 var(--f-mono);padding:3px 6px;border:1px dashed var(--amber-line);border-radius:3px;color:var(--amber);white-space:nowrap}
@@ -216,7 +217,7 @@ p{margin:0;max-width:62ch}
     <aside class="side">
       <div class="speaker">
         <h2>Speaker</h2>
-        <span class="name">Oguz Sarkut</span>
+        <a class="name" href="https://www.linkedin.com/in/osarkut/" target="_blank" rel="noopener">Oguz Sarkut</a>
         <span class="role">AI Product Leader · Fortune 100 company</span>
         <q>Everything you’ll see is how I actually work.</q>
       </div>
