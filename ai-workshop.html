@@ -108,13 +108,22 @@ p{margin:0;max-width:64ch}
   .details{grid-template-columns:minmax(0,1fr)}
   body{padding-block:16px 32px}
 }
+.tb-r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--sheet)}
+.lang button{font:500 12px/1 var(--f-mono);letter-spacing:.06em;color:var(--ink-3);background:transparent;border:0;border-radius:999px;padding:6px 10px;cursor:pointer;min-width:40px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.lang button:not([aria-pressed="true"]):hover{color:var(--amber)}
+.lang button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 </style>
 </head>
 <body>
 <main class="sheet">
   <div class="topbar">
     <span>AI for Business · Certificate program · 7 workshops</span>
-    <a href="01-meet-your-ai-coworker.html">Start with Workshop 01 →</a>
+    <div class="tb-r">
+      <a href="01-meet-your-ai-coworker.html">Start with Workshop 01 →</a>
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="tr" aria-pressed="false">TR</button></div>
+    </div>
   </div>
 
   <header class="mast">
@@ -205,5 +214,116 @@ p{margin:0;max-width:64ch}
     <a href="01-meet-your-ai-coworker.html">Start with Workshop 01 →</a>
   </footer>
 </main>
+<script>
+/* EN/TR switch. English is the markup; Turkish comes from the map below, matched by each piece of text.
+   Open a page in Turkish with #tr or ?lang=tr. The choice carries over to the other page's links. */
+(function(){
+  var TR = {
+"Don’t just ask AI questions.": "Yapay zekâya sadece soru sormayın.",
+"Give AI work.": "Ona iş verin.",
+"Language": "Dil",
+"__title": "İş Dünyası için Yapay Zekâ Programı",
+"AI for Business · Certificate program · 7 workshops": "İş Dünyası için Yapay Zekâ · Sertifika programı · 7 atölye",
+"Start with Workshop 01 →": "Atölye 01 ile başlayın →",
+"AI for Business": "İş Dünyası için Yapay Zekâ",
+"Build your AI team, one coworker at a time": "Yapay zekâ ekibinizi kurun, her seferinde bir iş arkadaşı",
+"A seven-workshop certificate program. Workshop 01 introduces the idea. Each workshop after it builds one AI coworker for your business, and in 07 they work together.": "Yedi atölyeden oluşan bir sertifika programı. Atölye 01 fikri tanıtır. Sonraki her atölyede işletmeniz için bir yapay zekâ iş arkadaşı kurarsınız; 07’de hepsi birlikte çalışır.",
+"The seven workshops": "Yedi atölye",
+"Meet Your AI Coworker": "Yapay Zekâ İş Arkadaşınızla Tanışın",
+"Start here": "Buradan başlayın",
+"What AI can already do": "Yapay zekâ bugün neler yapabilir",
+"You leave with": "Kazanımınız",
+"How to give AI real work, and your first job for AI on a work order": "Yapay zekâya gerçek iş vermeyi öğrenmek ve bir iş emri kartına yazılmış ilk yapay zekâ işiniz",
+"You build": "Kurduğunuz",
+"Your AI Market Analyst": "Yapay Zekâ Pazar Analistiniz",
+"Market research and competitive intelligence": "Pazar araştırması ve rekabet istihbaratı",
+"The Monday brief: competitors, prices and local news, with a source behind each claim": "Pazartesi bülteni: rakipler, fiyatlar ve yerel haberler, her iddianın arkasında bir kaynakla",
+"Your AI Marketer": "Yapay Zekâ Pazarlamacınız",
+"Marketing and content": "Pazarlama ve içerik",
+"The weekly content plan, built from what customers said last week": "Müşterilerin geçen hafta söylediklerinden hazırlanan haftalık içerik planı",
+"Your AI Sales Assistant": "Yapay Zekâ Satış Asistanınız",
+"Sales and customer growth": "Satış ve müşteri büyümesi",
+"The prospect funnel: who may need you now, why, and a draft for each. Nothing goes out without your OK": "Potansiyel müşteri hunisi: şu an size kimin ihtiyacı olabilir, neden, ve her biri için bir taslak. Onayınız olmadan hiçbir şey gönderilmez",
+"Your AI Data Analyst": "Yapay Zekâ Veri Analistiniz",
+"Data analysis and decision making": "Veri analizi ve karar verme",
+"Counted, not guessed: answers from your own numbers, with the count behind each one": "Tahmin değil, sayım: kendi rakamlarınızdan cevaplar, her birinin arkasında sayımıyla",
+"Your AI Operations Assistant": "Yapay Zekâ Operasyon Asistanınız",
+"Automation and business workflows": "Otomasyon ve iş akışları",
+"Every Monday at 6 AM: your recurring jobs running on a schedule": "Her pazartesi sabah 6’da: tekrarlayan işleriniz bir takvime göre kendiliğinden çalışır",
+"Your AI Agent Team": "Yapay Zekâ Ajan Ekibiniz",
+"AI agents working together": "Birlikte çalışan yapay zekâ ajanları",
+"Coworkers that work together: one watches the market, one plans content, one follows up. You manage the team": "Birlikte çalışan iş arkadaşları: biri pazarı izler, biri içerik planlar, biri takip eder. Ekibi siz yönetirsiniz",
+"How every workshop works": "Her atölye nasıl işler",
+"Each session is built around one real job. You see it run on real business data, learn how to brief it, check it and approve it, and leave with that coworker set up for your own business.": "Her oturum gerçek bir işin etrafında kurulur. O işin gerçek iş verileriyle çalıştığını görür; yapay zekâya nasıl brif vereceğinizi, sonucu nasıl kontrol edip onaylayacağınızı öğrenir ve o iş arkadaşını kendi işletmeniz için kurmuş olarak ayrılırsınız.",
+"Program details": "Program bilgileri",
+"Session length": "Oturum süresi",
+"40 minutes or 2 hours": "40 dakika veya 2 saat",
+"Every workshop comes in both formats": "Her atölye iki formatta da sunulur",
+"Format": "Format",
+"TBD": "Belirlenecek",
+"Schedule": "Takvim",
+"Total program time": "Toplam program süresi",
+"Certificate issued by": "Sertifikayı veren kurum",
+"Cost": "Ücret",
+"Bring the program to your organization": "Programı kurumunuza getirin",
+"· AI Product Leader · Fortune 100 company": "· Yapay Zekâ Ürün Lideri · Fortune 100 şirketi",
+"Contact:": "İletişim:",
+"AI for Business · 7-workshop certificate program": "İş Dünyası için Yapay Zekâ · 7 atölyelik sertifika programı"
+};
+  var norm = function(s){ return s.replace(/\s+/g,' ').trim(); };
+  var texts = [], attrs = [], links = [];
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(n){ var p = n.parentNode && n.parentNode.nodeName;
+      return (p === 'SCRIPT' || p === 'STYLE' || !norm(n.nodeValue)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }
+  });
+  for (var n; (n = walker.nextNode());){
+    var key = norm(n.nodeValue);
+    if (TR.hasOwnProperty(key)){
+      var m = n.nodeValue.match(/^(\s*)[\s\S]*?(\s*)$/);
+      texts.push({node:n, en:n.nodeValue, tr:m[1] + TR[key] + m[2]});
+    }
+  }
+  document.querySelectorAll('[aria-label]').forEach(function(el){
+    var v = el.getAttribute('aria-label');
+    if (TR.hasOwnProperty(v)) attrs.push({el:el, en:v, tr:TR[v]});
+  });
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h = a.getAttribute('href');
+    if (!/^(https?:|mailto:|#)/.test(h)) links.push({a:a, base:h});
+  });
+  var titleEn = document.title;
+  var btns = document.querySelectorAll('.lang button');
+
+  function apply(lang){
+    var tr = lang === 'tr';
+    texts.forEach(function(t){ t.node.nodeValue = tr ? t.tr : t.en; });
+    attrs.forEach(function(t){ t.el.setAttribute('aria-label', tr ? t.tr : t.en); });
+    links.forEach(function(l){ l.a.setAttribute('href', tr ? l.base + '#tr' : l.base); });
+    document.title = tr ? TR.__title : titleEn;
+    document.documentElement.lang = tr ? 'tr' : 'en';
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+  }
+  function fromUrl(){
+    var h = (location.hash || '').replace('#','').toLowerCase();
+    if (h === 'tr' || h === 'en') return h;
+    var q = /[?&]lang=(tr|en)\b/i.exec(location.search || '');
+    return q ? q[1].toLowerCase() : null;
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('aiw-lang'); } catch(e){}
+  var lang = fromUrl() || (saved === 'tr' ? 'tr' : 'en');
+  apply(lang);
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      lang = b.getAttribute('data-lang');
+      apply(lang);
+      try { localStorage.setItem('aiw-lang', lang); } catch(e){}
+      try { history.replaceState(null, '', location.pathname + '#' + lang); } catch(e){}
+    });
+  });
+  window.addEventListener('hashchange', function(){ var l = fromUrl(); if (l && l !== lang){ lang = l; apply(lang); } });
+})();
+</script>
 </body>
 </html>

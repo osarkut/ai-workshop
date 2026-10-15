@@ -131,6 +131,12 @@ p{margin:0;max-width:62ch}
 @media (prefers-reduced-motion:no-preference){
   .core em{transition:text-shadow .4s}
 }
+.tb-r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--sheet)}
+.lang button{font:500 12px/1 var(--f-mono);letter-spacing:.06em;color:var(--ink-3);background:transparent;border:0;border-radius:999px;padding:6px 10px;cursor:pointer;min-width:40px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+.lang button:not([aria-pressed="true"]):hover{color:var(--amber)}
+.lang button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -138,7 +144,10 @@ p{margin:0;max-width:62ch}
 <main class="sheet">
   <div class="topbar">
     <span>AI for Business · Workshop 01 of 7</span>
-    <a href="ai-workshop.html">← All 7 workshops</a>
+    <div class="tb-r">
+      <a href="ai-workshop.html">← All 7 workshops</a>
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="tr" aria-pressed="false">TR</button></div>
+    </div>
   </div>
 
   <header class="mast">
@@ -251,5 +260,142 @@ p{margin:0;max-width:62ch}
     <a href="ai-workshop.html">← All 7 workshops</a>
   </footer>
 </main>
+<script>
+/* EN/TR switch. English is the markup; Turkish comes from the map below, matched by each piece of text.
+   Open a page in Turkish with #tr or ?lang=tr. The choice carries over to the other page's links. */
+(function(){
+  var TR = {
+"Don’t just ask AI questions.": "Yapay zekâya sadece soru sormayın.",
+"Give AI work.": "Ona iş verin.",
+"Language": "Dil",
+"__title": "Yapay Zekâ İş Arkadaşınızla Tanışın",
+"AI for Business · Workshop 01 of 7": "İş Dünyası için Yapay Zekâ · Atölye 01 / 7",
+"← All 7 workshops": "← 7 atölyenin tümü",
+"Workshop 01 · Introduction": "Atölye 01 · Giriş",
+"Meet Your AI Coworker": "Yapay Zekâ İş Arkadaşınızla Tanışın",
+"What AI can already do for your business": "Yapay zekâ bugün işletmeniz için neler yapabilir",
+"40 min or 2 hours": "40 dk veya 2 saat",
+"two session formats": "iki oturum formatı",
+"Live demos": "Canlı demolar",
+"on real business data": "gerçek iş verileriyle",
+"Plain language": "Sade dil",
+"no coding": "kodlama yok",
+"The shift": "Değişim",
+"Most of us use AI like a search box. A question goes in, an answer comes out, and then we do the work ourselves. This session shows the other way: hand AI a job, your information and what done looks like, and get back finished work.": "Çoğumuz yapay zekâyı bir arama kutusu gibi kullanıyoruz. Soru giriyor, cevap çıkıyor, sonra işi yine kendimiz yapıyoruz. Bu oturum diğer yolu gösteriyor: yapay zekâya bir iş, bilgilerinizi ve işin bitmiş halinin nasıl görüneceğini verin; karşılığında bitmiş iş alın.",
+"Real example: a Monday brief": "Gerçek örnek: bir pazartesi bülteni",
+"Monday brief · Sep 28 – Oct 5": "Pazartesi bülteni · 28 Eyl – 5 Eki",
+"Real run · Oct 5, 2026": "Gerçek çalıştırma · 5 Ekim 2026",
+"This arrived Monday at 6 AM.": "Pazartesi sabah 6’da geldi.",
+"Nobody asked.": "Kimse istemeden.",
+"An AI job set up once for a café-bakery watched the local market, wrote a one-page brief and left drafts for the owner to approve.": "Bir kafe-fırın için bir kez kurulan yapay zekâ işi yerel pazarı izledi, tek sayfalık bir bülten yazdı ve işletme sahibinin onayı için taslaklar bıraktı.",
+"A new bakery opened in Plano.": "Plano’da yeni bir fırın açıldı.",
+"A new matcha café opened in Frisco.": "Frisco’da yeni bir matcha kafe açıldı.",
+"Matcha lattes nearby run": "Yakındaki matcha latte fiyatları",
+"to": "ile",
+". Where it couldn’t find a price, it wrote “not listed” instead of guessing.": " arasında. Fiyat bulamadığı yerde tahmin etmek yerine “listelenmemiş” yazdı.",
+"Drafts waiting in Gmail": "Gmail’de bekleyen taslaklar",
+"4 drafts in Gmail": "Gmail’de 4 taslak",
+"0 sent": "0 gönderildi",
+"Three jobs you’ll see run live": "Canlı çalışırken göreceğiniz üç iş",
+"Market": "Pazar",
+"A weekly brief": "Haftalık bülten",
+"Competitors, prices and local news, with a source behind each claim.": "Rakipler, fiyatlar ve yerel haberler; her iddianın arkasında bir kaynak.",
+"Customers": "Müşteriler",
+"A week of reviews": "Bir haftalık yorumlar",
+"What customers love, what frustrates them and what they ask, counted, not guessed.": "Müşterilerin neyi sevdiği, neye kızdığı ve ne sorduğu; tahminle değil, sayılarak.",
+"Sales": "Satış",
+"A job in the background": "Arka planda çalışan bir iş",
+"Finds businesses that may need you and drafts the outreach. It contacts no one.": "Size ihtiyacı olabilecek işletmeleri bulur ve iletişim taslaklarını hazırlar. Kimseyle iletişime geçmez.",
+"What you’ll learn": "Neler öğreneceksiniz",
+"Six kinds of work AI can do today": "Yapay zekânın bugün yapabildiği altı tür iş",
+"Answer and write, research and cite, work with your files, connect to your apps, take steps for you, run on a schedule.": "Cevaplamak ve yazmak, araştırıp kaynak göstermek, dosyalarınızla çalışmak, uygulamalarınıza bağlanmak, sizin yerinize adım atmak, bir takvime göre çalışmak.",
+"Brief it like a new hire": "Ona yeni işe başlayan biri gibi brif verin",
+"Give it the goal, your real information and what done looks like. Then give notes on the draft and ask it what’s weakest.": "Hedefi, gerçek bilgilerinizi ve işin bitmiş halini anlatın. Sonra taslağa notlarınızı verin ve en zayıf yerin neresi olduğunu ona sorun.",
+"When AI makes things up": "Yapay zekâ ne zaman uydurur",
+"Why it sounds sure when it has nothing to go on, and the habits that catch it.": "Elinde hiçbir dayanak yokken neden emin konuşur ve bunu yakalayan alışkanlıklar.",
+"When to trust it": "Ona ne zaman güvenmeli",
+"Ask how sure it is, let the stakes decide, and approve before it acts.": "Ne kadar emin olduğunu sorun, kararı riskin büyüklüğüne bırakın ve harekete geçmeden önce onaylayın.",
+"Everyone leaves with their first job for AI": "Herkes yapay zekâya vereceği ilk işle ayrılır",
+"Work order card": "İş emri kartı",
+"Work order · yours this week": "İş emri · bu hafta sizin",
+"The job": "İş",
+"Something you repeat every week": "Her hafta tekrarladığınız bir şey",
+"The goal": "Hedef",
+"What you want done, and why": "Ne yapılmasını istediğiniz ve neden",
+"The context": "Bağlam",
+"Connect it or attach it": "Bağlayın ya da ekleyin",
+"Done looks like": "Bitmiş hali",
+"Format, length, “say not sure”": "Format, uzunluk, “emin değilsen söyle”",
+"Stuck? Start with: “I need help with [the task]. Before you start, ask me up to five questions about the goal, what you need to know and what done looks like. Then wait for my OK.”": "Takıldınız mı? Şununla başlayın: “[İş] konusunda yardıma ihtiyacım var. Başlamadan önce bana hedef, bilmen gerekenler ve işin bitmiş hali hakkında en fazla beş soru sor. Sonra onayımı bekle.”",
+"Speaker": "Konuşmacı",
+"AI Product Leader · Fortune 100 company": "Yapay Zekâ Ürün Lideri · Fortune 100 şirketi",
+"Everything you’ll see is how I actually work.": "Göreceğiniz her şey, benim gerçekte nasıl çalıştığım.",
+"Who it’s for": "Kimler için",
+"Business owners and their teams": "İşletme sahipleri ve ekipleri",
+"Chamber and association members": "Oda ve dernek üyeleri",
+"Students and career changers": "Öğrenciler ve kariyer değiştirenler",
+"Professional groups and employee networks": "Meslek grupları ve çalışan ağları",
+"Bring Workshop 01 to your group": "Atölye 01’i grubunuza getirin",
+"Book a session:": "Oturum planlamak için:",
+"Then build the team": "Sonra ekibi kurun",
+"Workshop 01 is the first of seven in the AI for Business certificate program. Each one after it builds one AI coworker for your business.": "Atölye 01, İş Dünyası için Yapay Zekâ sertifika programındaki yedi atölyenin ilkidir. Sonraki her atölyede işletmeniz için bir yapay zekâ iş arkadaşı kurarsınız.",
+"See the full program →": "Programın tamamını görün →",
+"Meet Your AI Coworker · AI for Business · Workshop 01 of 7": "Yapay Zekâ İş Arkadaşınızla Tanışın · İş Dünyası için Yapay Zekâ · Atölye 01 / 7"
+};
+  var norm = function(s){ return s.replace(/\s+/g,' ').trim(); };
+  var texts = [], attrs = [], links = [];
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(n){ var p = n.parentNode && n.parentNode.nodeName;
+      return (p === 'SCRIPT' || p === 'STYLE' || !norm(n.nodeValue)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }
+  });
+  for (var n; (n = walker.nextNode());){
+    var key = norm(n.nodeValue);
+    if (TR.hasOwnProperty(key)){
+      var m = n.nodeValue.match(/^(\s*)[\s\S]*?(\s*)$/);
+      texts.push({node:n, en:n.nodeValue, tr:m[1] + TR[key] + m[2]});
+    }
+  }
+  document.querySelectorAll('[aria-label]').forEach(function(el){
+    var v = el.getAttribute('aria-label');
+    if (TR.hasOwnProperty(v)) attrs.push({el:el, en:v, tr:TR[v]});
+  });
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h = a.getAttribute('href');
+    if (!/^(https?:|mailto:|#)/.test(h)) links.push({a:a, base:h});
+  });
+  var titleEn = document.title;
+  var btns = document.querySelectorAll('.lang button');
+
+  function apply(lang){
+    var tr = lang === 'tr';
+    texts.forEach(function(t){ t.node.nodeValue = tr ? t.tr : t.en; });
+    attrs.forEach(function(t){ t.el.setAttribute('aria-label', tr ? t.tr : t.en); });
+    links.forEach(function(l){ l.a.setAttribute('href', tr ? l.base + '#tr' : l.base); });
+    document.title = tr ? TR.__title : titleEn;
+    document.documentElement.lang = tr ? 'tr' : 'en';
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+  }
+  function fromUrl(){
+    var h = (location.hash || '').replace('#','').toLowerCase();
+    if (h === 'tr' || h === 'en') return h;
+    var q = /[?&]lang=(tr|en)\b/i.exec(location.search || '');
+    return q ? q[1].toLowerCase() : null;
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('aiw-lang'); } catch(e){}
+  var lang = fromUrl() || (saved === 'tr' ? 'tr' : 'en');
+  apply(lang);
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      lang = b.getAttribute('data-lang');
+      apply(lang);
+      try { localStorage.setItem('aiw-lang', lang); } catch(e){}
+      try { history.replaceState(null, '', location.pathname + '#' + lang); } catch(e){}
+    });
+  });
+  window.addEventListener('hashchange', function(){ var l = fromUrl(); if (l && l !== lang){ lang = l; apply(lang); } });
+})();
+</script>
 </body>
 </html>
